@@ -18,7 +18,6 @@ export enum ChainId {
   GNOSIS = 100,
   MOONBEAM = 1284,
   AVALANCHE_FUJI = 43113, // updated
-  AVALANCHE = 43114 // updated
 }
 
 // WIP: Gnosis, Moonbeam
@@ -38,8 +37,6 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.CELO_ALFAJORES,
   ChainId.CELO,
   ChainId.AVALANCHE_FUJI, // updated
-  ChainId.AVALANCHE // updated
-
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -109,8 +106,6 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.MOONBEAM;
     case 43113: // updated
       return ChainId.AVALANCHE_FUJI;
-    case 43114: // updated
-        return ChainId.AVALANCHE;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -206,7 +201,6 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.CELO_ALFAJORES]: ['CELO'],
   [ChainId.GNOSIS]: ['XDAI'],
   [ChainId.MOONBEAM]: ['GLMR'],
-  [ChainId.AVALANCHE]: ['AVAX'], // updated
   [ChainId.AVALANCHE_FUJI]: ['AVAX'] // updated
 };
 
@@ -227,7 +221,6 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.CELO_ALFAJORES]: NativeCurrencyName.CELO,
   [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
   [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
-  [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE, // updated
   [ChainId.AVALANCHE_FUJI]: NativeCurrencyName.AVALANCHE // updated
 };
 
@@ -310,8 +303,6 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES!;
     case ChainId.AVALANCHE_FUJI: // updated
       return "https://api.avax-test.network/ext/bc/C/rpc";
-    case ChainId.AVALANCHE: // updated
-      return "https://api.avax.network/ext/bc/C/rpc";
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -439,13 +430,6 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WAVAX',
     'Wrapped AVAX'
   ), 
-  [ChainId.AVALANCHE]: new Token( // updated
-    ChainId.AVALANCHE,
-    '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
-    18,
-    'WAVAX',
-    'Wrapped AVAX'
-  ), 
 };
 
 function isMatic(
@@ -548,8 +532,8 @@ class MoonbeamNativeCurrency extends NativeCurrency {
   }
 }
 
-function isAvalanche(chainId: number): chainId is ChainId.AVALANCHE {
-  return chainId === ChainId.AVALANCHE;
+function isAvalancheFuji(chainId: number): chainId is ChainId.AVALANCHE_FUJI {
+  return chainId === ChainId.AVALANCHE_FUJI;
 }
 
 class AvalancheNativeCurrency extends NativeCurrency {
@@ -558,7 +542,7 @@ class AvalancheNativeCurrency extends NativeCurrency {
   }
 
   get wrapped(): Token {
-    if (!isAvalanche(this.chainId)) throw new Error('Not moonbeam');
+    if (!isAvalancheFuji(this.chainId)) throw new Error('Not moonbeam');
     const nativeCurrency = WRAPPED_NATIVE_CURRENCY[this.chainId];
     if (nativeCurrency) {
       return nativeCurrency;
@@ -567,7 +551,7 @@ class AvalancheNativeCurrency extends NativeCurrency {
   }
 
   public constructor(chainId: number) {
-    if (!isAvalanche(chainId)) throw new Error('Not avalanche');
+    if (!isAvalancheFuji(chainId)) throw new Error('Not avalanche');
     super(chainId, 18, 'AVAX', 'Avalanche');
   }
 }
@@ -602,7 +586,7 @@ export function nativeOnChain(chainId: number): NativeCurrency {
     cachedNativeCurrency[chainId] = new GnosisNativeCurrency(chainId);
   else if (isMoonbeam(chainId))
     cachedNativeCurrency[chainId] = new MoonbeamNativeCurrency(chainId);
-  else if (isAvalanche(chainId))
+  else if (isAvalancheFuji(chainId))
     cachedNativeCurrency[chainId] = new AvalancheNativeCurrency(chainId);
   else cachedNativeCurrency[chainId] = ExtendedEther.onChain(chainId);
   return cachedNativeCurrency[chainId]!;

@@ -176,7 +176,6 @@ const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     USDC_AVALANCHE_FUJI,
     WETH_AVALANCHE_FUJI
   ],
-  [ChainId.AVALANCHE]: []
 };
 
 /**

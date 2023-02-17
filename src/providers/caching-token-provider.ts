@@ -45,6 +45,12 @@ import {
   WBTC_OPTIMISTIC_KOVAN,
   WMATIC_POLYGON,
   WMATIC_POLYGON_MUMBAI,
+  DAI_AVALANCHE_FUJI,
+  TUSD_AVALANCHE_FUJI,
+  WBTC_AVALANCHE_FUJI,
+  MKR_AVALANCHE_FUJI,
+  USDC_AVALANCHE_FUJI,
+  WETH_AVALANCHE_FUJI
 } from './token-provider';
 
 // These tokens will added to the Token cache on initialization.
@@ -130,7 +136,15 @@ export const CACHE_SEED_TOKENS: {
     WBTC: WBTC_MOONBEAM,
     WGLMR: WRAPPED_NATIVE_CURRENCY[ChainId.MOONBEAM],
   },
-
+  [ChainId.AVALANCHE_FUJI]: {
+    WAVAX: WRAPPED_NATIVE_CURRENCY[ChainId.AVALANCHE_FUJI],
+    DAI: DAI_AVALANCHE_FUJI,
+    TUSD: TUSD_AVALANCHE_FUJI,
+    WBTC: WBTC_AVALANCHE_FUJI,
+    MKR: MKR_AVALANCHE_FUJI,
+    USDC: USDC_AVALANCHE_FUJI,
+    WETH: WETH_AVALANCHE_FUJI
+  }
   // Currently we do not have providers for Moonbeam mainnet or Gnosis testnet
 };
 
