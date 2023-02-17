@@ -295,8 +295,8 @@ const ID_TO_PROVIDER = (id) => {
             return process.env.JSON_RPC_PROVIDER_CELO;
         case ChainId.CELO_ALFAJORES:
             return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES;
-        case ChainId.AVALANCHE_FUJI: // updated
-            return "https://api.avax-test.network/ext/bc/C/rpc";
+        case ChainId.AVALANCHE_FUJI:
+            return process.env.JSON_RPC_PROVIDER_AVALANCHE_FUJI;
         default:
             throw new Error(`Chain id: ${id} not supported`);
     }
