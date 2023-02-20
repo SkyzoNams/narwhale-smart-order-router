@@ -535,13 +535,6 @@ export const DAI_AVALANCHE_FUJI = new Token(
   'Dai on avalanche bridged using Multichain'
 );
 
-export const DAI_AVALANCHE = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',
-  18,
-  'DAI',
-  'Dai on avalanche bridged using Multichain'
-);
 
 export const USDT_AVALANCHE_FUJI = new Token(
   ChainId.AVALANCHE_FUJI,
@@ -583,14 +576,6 @@ export const USDC_AVALANCHE_FUJI = new Token(
   'USDC from Ethereum on avalanche'
 );
 
-
-export const USDC_AVALANCHE = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
-  6,
-  'USDC',
-  'USDC from Ethereum on avalanche'
-);
 
 export const WETH_AVALANCHE_FUJI = new Token(
   ChainId.AVALANCHE_FUJI,
