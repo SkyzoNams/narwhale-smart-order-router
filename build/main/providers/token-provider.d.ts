@@ -86,15 +86,11 @@ export declare const USDC_MOONBEAM: Token;
 export declare const WGLMR_MOONBEAM: Token;
 export declare const DAI_MOONBEAM: Token;
 export declare const WBTC_MOONBEAM: Token;
-export declare const DAI_AVALANCHE_FUJI: Token;
 export declare const DAI_AVALANCHE: Token;
-export declare const USDT_AVALANCHE_FUJI: Token;
-export declare const TUSD_AVALANCHE_FUJI: Token;
-export declare const WBTC_AVALANCHE_FUJI: Token;
-export declare const MKR_AVALANCHE_FUJI: Token;
-export declare const USDC_AVALANCHE_FUJI: Token;
+export declare const USDT_AVALANCHE: Token;
+export declare const TUSD_AVALANCHE: Token;
 export declare const USDC_AVALANCHE: Token;
-export declare const WETH_AVALANCHE_FUJI: Token;
+export declare const WETH_AVALANCHE: Token;
 export declare class TokenProvider implements ITokenProvider {
     private chainId;
     protected multicall2Provider: IMulticallProvider;

@@ -17,7 +17,7 @@ export enum ChainId {
   CELO_ALFAJORES = 44787,
   GNOSIS = 100,
   MOONBEAM = 1284,
-  AVALANCHE_FUJI = 43113,
+  AVALANCHE = 43114,
 }
 
 // WIP: Gnosis, Moonbeam
@@ -36,7 +36,7 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.GÖRLI,
   ChainId.CELO_ALFAJORES,
   ChainId.CELO,
-  ChainId.AVALANCHE_FUJI
+  ChainId.AVALANCHE
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -104,8 +104,8 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.GNOSIS;
     case 1284:
       return ChainId.MOONBEAM;
-    case 43113:
-      return ChainId.AVALANCHE_FUJI;
+    case 43114:
+      return ChainId.AVALANCHE;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -128,7 +128,7 @@ export enum ChainName {
   CELO_ALFAJORES = 'celo-alfajores',
   GNOSIS = 'gnosis-mainnet',
   MOONBEAM = 'moonbeam-mainnet',
-  AVALANCHE_FUJI = 'avalanche-testnet'
+  AVALANCHE = 'avalanche'
 }
 
 export enum NativeCurrencyName {
@@ -200,7 +200,7 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
   [ChainId.CELO_ALFAJORES]: ['CELO'],
   [ChainId.GNOSIS]: ['XDAI'],
   [ChainId.MOONBEAM]: ['GLMR'],
-  [ChainId.AVALANCHE_FUJI]: ['AVAX']
+  [ChainId.AVALANCHE]: ['AVAX']
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -220,7 +220,7 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.CELO_ALFAJORES]: NativeCurrencyName.CELO,
   [ChainId.GNOSIS]: NativeCurrencyName.GNOSIS,
   [ChainId.MOONBEAM]: NativeCurrencyName.MOONBEAM,
-  [ChainId.AVALANCHE_FUJI]: NativeCurrencyName.AVALANCHE
+  [ChainId.AVALANCHE]: NativeCurrencyName.AVALANCHE
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -257,8 +257,8 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.GNOSIS;
     case 1284:
       return ChainName.MOONBEAM;
-    case 43113:
-      return ChainName.AVALANCHE_FUJI;
+    case 43114:
+      return ChainName.AVALANCHE;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -298,7 +298,7 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_CELO!;
     case ChainId.CELO_ALFAJORES:
       return process.env.JSON_RPC_PROVIDER_CELO_ALFAJORES!;
-    case ChainId.AVALANCHE_FUJI:
+    case ChainId.AVALANCHE:
       return process.env.JSON_RPC_PROVIDER_AVALANCHE_FUJI!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
@@ -420,8 +420,8 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     'WGLMR',
     'Wrapped GLMR'
   ), 
-  [ChainId.AVALANCHE_FUJI]: new Token(
-    ChainId.AVALANCHE_FUJI,
+  [ChainId.AVALANCHE]: new Token(
+    ChainId.AVALANCHE,
     '0xd00ae08403B9bbb9124bB305C09058E32C39A48c',
     18,
     'WAVAX',
@@ -529,8 +529,8 @@ class MoonbeamNativeCurrency extends NativeCurrency {
   }
 }
 
-function isAvalancheFuji(chainId: number): chainId is ChainId.AVALANCHE_FUJI {
-  return chainId === ChainId.AVALANCHE_FUJI;
+function isAvalancheFuji(chainId: number): chainId is ChainId.AVALANCHE {
+  return chainId === ChainId.AVALANCHE;
 }
 
 class AvalancheNativeCurrency extends NativeCurrency {

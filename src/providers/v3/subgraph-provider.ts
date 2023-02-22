@@ -59,8 +59,8 @@ const SUBGRAPH_URL_BY_CHAIN: { [chainId in ChainId]?: string } = {
     'https://api.thegraph.com/subgraphs/name/jesse-sawa/uniswap-celo',
   [ChainId.GÖRLI]:
     'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-gorli',
-  [ChainId.AVALANCHE_FUJI]:
-    'https://api.studio.thegraph.com/query/42489/narwhale-fuji-subgraph/v0.0.1'
+  [ChainId.AVALANCHE]:
+    'https://api.thegraph.com/subgraphs/name/skyzonams/narwhale-mainnet-subgraph'
 };
 
 const PAGE_SIZE = 1000; // 1k is max possible query size from subgraph.

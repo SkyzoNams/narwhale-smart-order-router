@@ -527,59 +527,43 @@ export const WBTC_MOONBEAM = new Token(
   'Wrapped BTC bridged using Multichain'
 );
 
-export const DAI_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0x12C135a68b7B3Cd006eDb785cB53398a5DA59613',
+export const DAI_AVALANCHE = new Token(
+  ChainId.AVALANCHE,
+  '0xd586e7f844cea2f87f50152665bcbc2c279d8d70',
   18,
   'DAI',
   'Dai on avalanche bridged using Multichain'
 );
 
 
-export const USDT_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0x82DCEC6aa3c8BFE2C96d40d8805EE0dA15708643',
+export const USDT_AVALANCHE = new Token(
+  ChainId.AVALANCHE,
+  '0xc7198437980c041c805a1edcba50c1ce5db95118',
   6,
   'USDT',
   'Tether USD'
 );
 
-export const TUSD_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0x35907d0D62864f7ab75574947C040CCD9Ad003d3',
+export const TUSD_AVALANCHE = new Token(
+  ChainId.AVALANCHE,
+  '0x1c20e891bab6b1727d14da358fae2984ed9b59eb',
   18,
   'TUSD',
   'TrueUSD'
 );
 
-export const WBTC_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0xaaB927CfD81A029F841575AF787C960CDE597e4F',
-  8,
-  'WBTC',
-  'Wrapped BTC'
-);
-
-export const MKR_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0x4c49a0c7a834caF1469f534f548d7fBaEE2bF5C9',
-  18,
-  'MKR',
-  'Maker DAO'
-);
-
-export const USDC_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0xAF82969ECF299c1f1Bb5e1D12dDAcc9027431160',
+export const USDC_AVALANCHE = new Token(
+  ChainId.AVALANCHE,
+  '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664',
   6,
   'USDC',
   'USDC from Ethereum on avalanche'
 );
 
 
-export const WETH_AVALANCHE_FUJI = new Token(
-  ChainId.AVALANCHE_FUJI,
-  '0xB767287A7143759f294CfB7b1Adbca1140F3de71',
+export const WETH_AVALANCHE = new Token(
+  ChainId.AVALANCHE,
+  '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
   18,
   'WETH',
   'ETH from Ethereum on avalanche'
@@ -713,8 +697,8 @@ export const DAI_ON = (chainId: ChainId): Token => {
       return DAI_CELO_ALFAJORES;
     case ChainId.MOONBEAM:
       return DAI_MOONBEAM;
-    case ChainId.AVALANCHE_FUJI:
-      return DAI_AVALANCHE_FUJI;
+    case ChainId.AVALANCHE:
+      return DAI_AVALANCHE;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -740,8 +724,8 @@ export const USDT_ON = (chainId: ChainId): Token => {
       return USDT_ARBITRUM;
     case ChainId.ARBITRUM_RINKEBY:
       return USDT_ARBITRUM_RINKEBY;
-    case ChainId.AVALANCHE_FUJI:
-      return USDT_AVALANCHE_FUJI;
+    case ChainId.AVALANCHE:
+      return USDT_AVALANCHE;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }
@@ -777,8 +761,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_ETHEREUM_GNOSIS;
     case ChainId.MOONBEAM:
       return USDC_MOONBEAM;
-    case ChainId.AVALANCHE_FUJI:
-      return USDC_AVALANCHE_FUJI;
+    case ChainId.AVALANCHE:
+      return USDC_AVALANCHE;
     default:
       throw new Error(`Chain id: ${chainId} not supported`);
   }

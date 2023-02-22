@@ -16,7 +16,7 @@ export declare enum ChainId {
     CELO_ALFAJORES = 44787,
     GNOSIS = 100,
     MOONBEAM = 1284,
-    AVALANCHE_FUJI = 43113
+    AVALANCHE = 43114
 }
 export declare const SUPPORTED_CHAINS: ChainId[];
 export declare const V2_SUPPORTED: ChainId[];
@@ -40,8 +40,7 @@ export declare enum ChainName {
     CELO_ALFAJORES = "celo-alfajores",
     GNOSIS = "gnosis-mainnet",
     MOONBEAM = "moonbeam-mainnet",
-    AVALANCHE_FUJI = "avalanche-testnet",
-    AVALANCHE = "avalanche-mainnet"
+    AVALANCHE = "avalanche"
 }
 export declare enum NativeCurrencyName {
     ETHER = "ETH",
